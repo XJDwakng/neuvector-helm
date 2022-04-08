@@ -4,8 +4,8 @@
 
 openshift: false
 
-registry: registry.neuvector.com
-tag: 4.4.4-s2
+registry: 101.43.64.159:30004
+tag: 4.4.4
 oem:
 imagePullSecrets:
 psp: false
@@ -20,7 +20,7 @@ controller:
       maxSurge: 1
       maxUnavailable: 0
   image:
-    repository: neuvector/controller
+    repository: dss/controller
     hash:
   replicas: 3
   disruptionbudget: 0
@@ -157,7 +157,7 @@ enforcer:
   # If false, enforcer will not be installed
   enabled: true
   image:
-    repository: neuvector/enforcer
+    repository: dss/enforcer
     hash:
   priorityClassName:
   tolerations:
@@ -175,7 +175,7 @@ manager:
   # If false, manager will not be installed
   enabled: true
   image:
-    repository: neuvector/manager
+    repository: dss/manager
     hash:
   priorityClassName:
   env:
@@ -228,8 +228,8 @@ cve:
     enabled: true
     secure: false
     image:
-      repository: neuvector/updater
-      tag: latest
+      repository: dss/updater
+      tag: 4
       hash:
     schedule: "0 0 * * *"
     priorityClassName:
@@ -243,8 +243,8 @@ cve:
         maxSurge: 1
         maxUnavailable: 0
     image:
-      repository: neuvector/scanner
-      tag: latest
+      repository: dss/scanner
+      tag: 4
       hash:
     priorityClassName:
     resources: {}
